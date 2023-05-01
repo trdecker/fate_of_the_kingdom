@@ -1,0 +1,53 @@
+import { useState } from 'react';
+import '../App.css';
+
+function Hero(props) {
+    const [creationStep, setCreationStep] = useState(0);
+    const [heroImage, setHeroImage] = useState(''); // ['knight.jpeg', 'knight2.jpeg']
+    const [heroName, setHeroName] = useState('');
+
+    const chooseHeroImage = (image) => () => {
+        setHeroImage(image);
+        setCreationStep(1);
+    }
+
+    function beginGame() {
+        props.setGameState('playing');
+        props.setHero({ name: heroName, image: heroImage });
+    }
+
+    return (
+        <div class="hero min-h-screen bg-base-200">
+            {creationStep === 0 && <div>
+                <h2 class="text-5xl font-bold py-6">Choose your Hero</h2>
+                <div lass="flex flex-wrap justify-around">
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <figure><img src={require('../images/knight.jpeg')} alt="knight" /></figure>
+                        <div class="card-body">
+                            <div class="card-actions justify-end">
+                                <button onClick={chooseHeroImage('knight.jpeg')} class="btn btn-primary">Choose</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <figure><img src={require('../images/knight2.jpeg')} alt="knight2" /></figure>
+                        <div class="card-body">
+                            <div class="card-actions justify-end">
+                                <button onClick={chooseHeroImage('knight2.jpeg')} class="btn btn-primary">Choose</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>}
+            {creationStep === 1 && <div class="flex flex-wrap">
+                <input type="text" placeholder="Hero Name" onChange={(e) => setHeroName(e.target.value)} class="input input-bordered input-primary w-full max-w-xs" />
+                <button onClick={beginGame} class="btn btn-primary">Choose</button>
+            </div>}
+
+
+
+        </div>
+    );
+}
+
+export default Hero;
