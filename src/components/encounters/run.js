@@ -163,6 +163,7 @@ function Run(props) {
         if (deathBox.x < player.x && player.x < deathBox.x + deathBox.width &&
             deathBox.y < player.y && player.y < deathBox.y + deathBox.height) {
             props.setGameState('death');
+            props.setDeathMessage('You fell to your death...');
         }
         if (success.x < player.x && player.x < success.x + success.width &&
             success.y < player.y && player.y < success.y + success.height) {

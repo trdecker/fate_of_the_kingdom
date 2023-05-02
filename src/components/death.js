@@ -17,6 +17,7 @@ function Death(props) {
             <div class="hero-content flex-col lg:flex-row">
                 <div>
                     <h1 class="text-5xl font-bold py-6">You Died</h1>
+                    <p className='py6'>{props.deathMessage}</p>
                     <button class="btn btn-primary" onClick={restart}>Play Again</button>
                 </div>
             </div>

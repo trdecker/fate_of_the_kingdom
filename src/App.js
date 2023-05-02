@@ -15,6 +15,7 @@ function App() {
       { name: 'a potion', type: 'health', amount: 5 },
     ]
   }); // { name: '', image: '' }
+  const [deathMessage, setDeathMessage] = useState('');
 
   const handleItem = (item, index) => () => {
     const storage = hero.storage;
@@ -44,8 +45,8 @@ function App() {
             <div>
               {gameState === "start" && <Start setGameState={setGameState} />}
               {gameState === "hero-creation" && <HeroCreation setGameState={setGameState} hero={hero} setHero={setHero} />}
-              {gameState === "playing" && <Game hero={hero} setHero={setHero} setGameState={setGameState}/>}
-              {gameState === "death" && <Death hero={hero} setHero={setHero} setGameState={setGameState}/>}
+              {gameState === "playing" && <Game hero={hero} setHero={setHero} setGameState={setGameState} setDeathMessage={setDeathMessage}/>}
+              {gameState === "death" && <Death hero={hero} setHero={setHero} setGameState={setGameState} deathMessage={deathMessage}/>}
               {gameState === "win" && <Win hero={hero} setHero={setHero} setGameState={setGameState}/>}
             </div>
           </div>
