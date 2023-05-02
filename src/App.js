@@ -16,6 +16,11 @@ function App() {
     ]
   }); // { name: '', image: '' }
 
+  const handleItem = (item, index) => () => {
+    const storage = hero.storage.splice(index, 1);
+    setHero({ ...hero, [item.type]: hero[item.type] + item.amount, storage });
+  }
+
   return (
     <div>
       <div class="drawer">
@@ -46,7 +51,7 @@ function App() {
         <div class="drawer-side">
           <label for="my-drawer" class="drawer-overlay"></label>
           <ul class="menu p-4 w-80 bg-base-100 text-base-content">
-            {hero.storage.map((item) => <li><a>{item.name}</a></li>)}
+            {hero.storage.map((item, index) => <li><a onClick={handleItem(item, index)}>{item.name}</a></li>)}
 
           </ul>
         </div>
