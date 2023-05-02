@@ -8,8 +8,8 @@ function Monster(props) {
 
     function getEncounter() {
         const retrievedEncounter = props.monsters.encounters[Math.floor(Math.random() * props.monsters.encounters.length)];
-        console.log(retrievedEncounter)
-        setEncounter(retrievedEncounter);
+        const copy = { ...retrievedEncounter };
+        setEncounter(copy);
         setMonsterMaxHealth(retrievedEncounter.monsterHealth);
     }
 
@@ -27,6 +27,7 @@ function Monster(props) {
         setEncounter(encounter);
         if (newMonsterHealth <= 0) {
             props.setHero({ ...props.hero, strength: props.hero.strength - encounter.power});
+
             setEncounterState('outcome');
         } else {
             handleMonsterAttack();

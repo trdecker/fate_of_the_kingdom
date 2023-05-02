@@ -34,7 +34,7 @@ function Hero(props) {
                         <figure><img class="py-6 w-60" src={require('../images/hero2Full.png')} alt="knight2" /></figure>
                         <div class="card-body">
                             <div class="card-actions justify-end">
-                                <button onClick={chooseHeroImage('hero2Full.jpeg')} class="btn btn-primary">Choose</button>
+                                <button onClick={chooseHeroImage('hero2Full.png')} class="btn btn-primary">Choose</button>
                             </div>
                         </div>
                     </div>
