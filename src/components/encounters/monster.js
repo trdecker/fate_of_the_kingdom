@@ -97,6 +97,9 @@ function Monster(props) {
                 </div>}
             {encounterState === 'run' && <div class="card w-96 bg-base-100 shadow-xl">
                 <Run platformNumber={encounter.platforms} setEncounterState={setEncounterState} setGameState={props.setGameState} setDeathMessage={props.setDeathMessage}/>
+                <div class="card-body">
+                    <p>Use Arrows to escape.</p>
+                </div>
             </div>
             }
             {encounterState === 'escaped' && <div class="card w-96 bg-base-100 shadow-xl">
