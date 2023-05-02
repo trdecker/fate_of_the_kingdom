@@ -13,15 +13,15 @@ function Hero(props) {
 
     function beginGame() {
         props.setGameState('playing');
-        props.setHero({ name: heroName, image: heroImage });
+        props.setHero({ name: heroName, image: heroImage, ...props.hero });
     }
 
     return (
         <div class="hero min-h-screen bg-base-200">
             {creationStep === 0 && <div>
                 <h2 class="text-5xl font-bold py-6">Choose your Hero</h2>
-                <div lass="flex flex-wrap justify-around">
-                    <div class="card w-96 bg-base-100 shadow-xl">
+                <div class="flex flex-col w-full lg:flex-row">
+                <div class="card w-96 bg-base-100 shadow-xl">
                         <figure><img src={require('../images/knight.jpeg')} alt="knight" /></figure>
                         <div class="card-body">
                             <div class="card-actions justify-end">
@@ -29,6 +29,7 @@ function Hero(props) {
                             </div>
                         </div>
                     </div>
+                    <div class="divider lg:divider-horizontal"></div> 
                     <div class="card w-96 bg-base-100 shadow-xl">
                         <figure><img src={require('../images/knight2.jpeg')} alt="knight2" /></figure>
                         <div class="card-body">
