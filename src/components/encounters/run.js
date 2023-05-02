@@ -2,62 +2,71 @@ import React, { useEffect, useRef } from 'react';
 
 function Run(props) {
     const canvasRef = useRef();
+    let showFrame1 = true;
+    let canvas;
     let ctx;
 
-    // The attributes of the player.
-    var player = {
-        x: 20,
-        y: 20,
+    const platformImage = new Image();
+    platformImage.src = require('../../images/platform.png')
+
+    const heroImage = new Image();
+    heroImage.src = require('../../images/hero2.png')
+
+    // Player
+    let player = {
+        x: 30,
+        y: 60,
         x_v: 0,
         y_v: 0,
         jump: true,
-        height: 20,
-        width: 20
+        height: 60,
+        width: 30
     };
 
-    var deathBox = {
+    let deathBox = {
         x: 0,
         y: 599,
         width: 650,
         height: 50
     }
 
-    var success = {
+    let success = {
         x: 649,
         y: 0,
         width: 20,
         height: 600
     }
-    // The status of the arrow keys
-    var keys = {
+
+    // Keys
+    let keys = {
         right: false,
         left: false,
         up: false,
     };
-    // The friction and gravity to show realistic movements    
-    var gravity = 0.6;
-    var friction = 0.7;
-    // The number of platforms
-    var num;
+  
+    let gravity = 0.6;
+    let friction = 0.7;
+
+    let num;
     if (props.platformNumber > 7){
         num = 7;
     } else {
         num = props.platformNumber;
     }
-    // var num = props.platformNumber;
-    // The platforms
-    var platforms = [];
-    // Function to render the canvas
+
+
+    let platforms = [];
+    // Render Canvas
     function rendercanvas() {
         ctx.fillStyle = "#F0F8FF";
         ctx.fillRect(0, 0, 650, 600);
     }
-    // Function to render the player
+    // Render Player
     function renderplayer() {
-        ctx.fillStyle = "#F08080";
-        ctx.fillRect((player.x) - 20, (player.y) - 20, player.width, player.height);
+        ctx.drawImage(heroImage, player.x - 30, player.y - 60, player.width, player.height);
+
     }
-    // Function to create platforms
+    // Create Platforms
     function createplat() {
         for (let i = 0; i <= num; i++) {
             const platform = {
@@ -75,11 +84,11 @@ function Run(props) {
             );
         }
     }
-    // Function to render platforms
+    // Render Platforms
     function renderplat() {
-        ctx.fillStyle = "#45597E";
         for (const platform of platforms) {
-        ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+        ctx.drawImage(platformImage, platform.x, platform.y, platform.width, platform.height);
+        // ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
         }
     }
 
@@ -92,7 +101,8 @@ function Run(props) {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(success.x, success.y, success.width, success.height);
     }
-    // This function will be called when a key on the keyboard is pressed
+    
+    // Keys pressed
     function keydown(e) {
         // 37 is the code for the left arrow key
         if (e.keyCode == 37) {
@@ -171,7 +181,7 @@ function Run(props) {
     }
 
     useEffect(() => {
-        const canvas = canvasRef.current;
+        canvas = canvasRef.current;
         ctx = canvas.getContext('2d');
         ctx.canvas.height = 600;
         ctx.canvas.width = 650;
