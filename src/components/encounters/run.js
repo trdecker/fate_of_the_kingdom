@@ -12,6 +12,9 @@ function Run(props) {
     const heroImage = new Image();
     heroImage.src = require('../../images/hero.png')
 
+    const backgroundImage = new Image();
+    backgroundImage.src = require('../../images/background.png')
+
     // Player
     let player = {
         x: 30,
@@ -58,8 +61,7 @@ function Run(props) {
     let platforms = [];
     // Render Canvas
     function rendercanvas() {
-        ctx.fillStyle = "#F0F8FF";
-        ctx.fillRect(0, 0, 650, 600);
+        ctx.drawImage(backgroundImage, 0, 0, 650, 600);
     }
     // Render Player
     function renderplayer() {
