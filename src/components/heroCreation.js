@@ -22,25 +22,25 @@ function Hero(props) {
                 <h2 class="text-5xl font-bold py-6">Choose your Hero</h2>
                 <div class="flex flex-col w-full lg:flex-row">
                 <div class="card w-96 bg-base-100 shadow-xl">
-                        <figure><img src={require('../images/knight.jpeg')} alt="knight" /></figure>
+                        <figure><img class="py-6 w-60" src={require('../images/heroFull.png')} alt="knight" /></figure>
                         <div class="card-body">
                             <div class="card-actions justify-end">
-                                <button onClick={chooseHeroImage('knight.jpeg')} class="btn btn-primary">Choose</button>
+                                <button onClick={chooseHeroImage('heroFull.png')} class="btn btn-primary">Choose</button>
                             </div>
                         </div>
                     </div>
                     <div class="divider lg:divider-horizontal"></div> 
                     <div class="card w-96 bg-base-100 shadow-xl">
-                        <figure><img src={require('../images/knight2.jpeg')} alt="knight2" /></figure>
+                        <figure><img class="py-6 w-60" src={require('../images/hero2Full.png')} alt="knight2" /></figure>
                         <div class="card-body">
                             <div class="card-actions justify-end">
-                                <button onClick={chooseHeroImage('knight2.jpeg')} class="btn btn-primary">Choose</button>
+                                <button onClick={chooseHeroImage('hero2Full.jpeg')} class="btn btn-primary">Choose</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>}
-            {creationStep === 1 && <div class="flex flex-wrap">
+            {creationStep === 1 && <div class="flex flex-row">
                 <input type="text" placeholder="Hero Name" onChange={(e) => setHeroName(e.target.value)} class="input input-bordered input-primary w-full max-w-xs" />
                 <button onClick={beginGame} class="btn btn-primary">Choose</button>
             </div>}

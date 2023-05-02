@@ -10,17 +10,17 @@ function Run(props) {
     platformImage.src = require('../../images/platform.png')
 
     const heroImage = new Image();
-    heroImage.src = require('../../images/hero2.png')
+    heroImage.src = require('../../images/hero.png')
 
     // Player
     let player = {
         x: 30,
-        y: 60,
+        y: 45,
         x_v: 0,
         y_v: 0,
         jump: true,
         height: 60,
-        width: 30
+        width: 45
     };
 
     let deathBox = {
@@ -63,7 +63,7 @@ function Run(props) {
     }
     // Render Player
     function renderplayer() {
-        ctx.drawImage(heroImage, player.x - 30, player.y - 60, player.width, player.height);
+        ctx.drawImage(heroImage, player.x - 45, player.y - 60, player.width, player.height);
 
     }
     // Create Platforms
@@ -101,7 +101,7 @@ function Run(props) {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(success.x, success.y, success.width, success.height);
     }
-    
+
     // Keys pressed
     function keydown(e) {
         // 37 is the code for the left arrow key
