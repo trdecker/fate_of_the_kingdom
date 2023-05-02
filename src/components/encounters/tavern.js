@@ -49,14 +49,14 @@ function Tavern(props) {
     return (
         <div class="hero bg-base-200">
             {encounterState === 'discovery' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/tavern.jpeg`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/tavern.png`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>You stumble upon what appears to be an abandoned tavern</p>
                     <button onClick={() => { setEncounterState('encounter'); getEncounter() }} class="btn btn-primary">Enter Tavern</button>
                 </div>
             </div>}
             {encounterState === 'encounter' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>{props.taverns.text} {encounter.itemName}</p>
                 <button onClick={handleChoice} class="btn btn-primary">{encounter.choice}</button>
@@ -65,7 +65,7 @@ function Tavern(props) {
                 </div>
             </div>}
             {encounterState === 'outcome' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>{encounter.text}</p>
                     <button onClick={handleClose} class="btn btn-primary">Leave Tavern</button>

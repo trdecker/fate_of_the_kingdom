@@ -55,14 +55,14 @@ function Monster(props) {
     return (
         <div class="hero bg-base-200">
             {encounterState === 'discovery' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/castle.jpg`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/forest.png`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>You here an unhuman noise coming just uphead.</p>
                     <button onClick={() => { setEncounterState('encounter'); getEncounter() }} class="btn btn-primary">Investigate</button>
                 </div>
             </div>}
             {encounterState === 'encounter' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>{props.monsters.text} {encounter.itemName}</p>
                     <button onClick={handleChoice} class="btn btn-primary">{encounter.choice}</button>
@@ -100,14 +100,14 @@ function Monster(props) {
             </div>
             }
             {encounterState === 'escaped' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>You were able to escape the {encounter.itemName}.</p>
                     <button onClick={handleClose} class="btn btn-primary">Continue Journey</button>
                 </div>
             </div>}
             {encounterState === 'outcome' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/${encounter.image}`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>You were able to kill the {encounter.itemName}. You've gotten stronger.</p>
                     <button onClick={handleClose} class="btn btn-primary">Continue Journey</button>

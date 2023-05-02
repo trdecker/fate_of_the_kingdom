@@ -44,14 +44,14 @@ function Chest(props) {
     return (
         <div class="hero bg-base-200">
             {encounterState === 'discovery' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/chest.jpeg`)} alt="Hero Image" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/chest.png`)} alt="Hero Image" /></figure>
                 <div class="card-body">
                     <p>You find what appears to be a chest</p>
                     <button onClick={() => { setEncounterState('encounter'); getEncounter() }} class="btn btn-primary">Open Chest</button>
                 </div>
             </div>}
             {encounterState === 'encounter' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Hero Image" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/chest.png`)} alt="Hero Image" /></figure>
                 <div class="card-body">
                     <p>{props.chests.text} {encounter.itemName}</p>
                 <button onClick={handleChoice} class="btn btn-primary">{encounter.choice}</button>
@@ -60,7 +60,7 @@ function Chest(props) {
                 </div>
             </div>}
             {encounterState === 'outcome' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/${encounter.image}`)} alt="Hero Image" /></figure>
+                <figure><img class="w-60 py-6" src={require(`../../images/chest.png`)} alt="Hero Image" /></figure>
                 <div class="card-body">
                     <p>{encounter.text}</p>
                     <button onClick={handleClose} class="btn btn-primary">Close Chest</button>

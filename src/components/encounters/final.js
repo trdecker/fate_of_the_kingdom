@@ -35,7 +35,7 @@ function Final(props) {
     return (
         <div class="hero bg-base-200">
             {encounterState === 'discovery' && <div class="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={require(`../../images/castle.jpg`)} alt="Tavern" /></figure>
+                <figure><img src={require(`../../images/castle.png`)} alt="Tavern" /></figure>
                 <div class="card-body">
                     <p>You've made it to the castle alive.</p>
                     <button onClick={() => { setEncounterState('encounter'); getEncounter() }} class="btn btn-primary">Investigate</button>
