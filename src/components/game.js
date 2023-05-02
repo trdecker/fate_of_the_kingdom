@@ -32,7 +32,7 @@ function Game(props) {
 
             {begin && <button onClick={beginGame} class="btn btn-primary">Begin the Adventure</button>}
             {!begin && encounter?.id === 'tavern' && <Tavern taverns={encounter} hero={props.hero} setHero={props.setHero}  nextEncounter={beginGame} setGameState={props.setGameState}/>}
-            {!begin && encounter?.id === 'monster' && <Monster monsters={encounter} hero={props.hero} setHero={props.setHero}  nextEncounter={beginGame} setGameState={props.setGameState}/>}
+            {!begin && encounter?.id === 'monster' && <Monster monsters={encounter} hero={props.hero} setHero={props.setHero}  nextEncounter={beginGame} setGameState={props.setGameState} step={counter}/>}
             {!begin && encounter?.id === 'chest' && <Chest chests={encounter} hero={props.hero} setHero={props.setHero}  nextEncounter={beginGame} setGameState={props.setGameState}/>}
             {!begin && encounter?.id === 'final' && <Final boss={encounter} hero={props.hero} setHero={props.setHero} setGameState={props.setGameState}/>}
         </div>

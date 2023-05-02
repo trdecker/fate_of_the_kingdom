@@ -9,8 +9,9 @@ function Monster(props) {
     function getEncounter() {
         const retrievedEncounter = props.monsters.encounters[Math.floor(Math.random() * props.monsters.encounters.length)];
         const copy = { ...retrievedEncounter };
+        copy.monsterHealth = retrievedEncounter.monsterHealth + props.step;
         setEncounter(copy);
-        setMonsterMaxHealth(retrievedEncounter.monsterHealth);
+        setMonsterMaxHealth(retrievedEncounter.monsterHealth + props.step);
     }
 
     function handleChoice() {
