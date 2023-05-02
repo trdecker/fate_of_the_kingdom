@@ -7,6 +7,7 @@ module.exports = Object.freeze({
                 {
                     itemName: 'goblin',
                     monsterHealth: 5,
+                    platforms: 7,
                     image: 'goblin.jpeg',
                     affects: 'health',
                     power: -1,
@@ -15,6 +16,7 @@ module.exports = Object.freeze({
                 {
                     itemName: 'stone golem',
                     monsterHealth: 10,
+                    platforms: 4,
                     image: 'golem.jpeg',
                     affects: 'health',
                     power: -3,
@@ -23,6 +25,7 @@ module.exports = Object.freeze({
                 {
                     itemName: 'hellhound',
                     monsterHealth: 5,
+                    platforms: 5,
                     image: 'hellhound.jpg',
                     affects: 'health',
                     power: -5,

@@ -14,6 +14,7 @@ function Chest(props) {
         if(props.hero.strength + encounter.affectAmount < 0){
             props.setHero({...props.hero, strength: 0});
             // Handle death
+            props.setGameState('death')
         } else {
             props.setHero({...props.hero, strength: props.hero.strength + encounter.affectAmount});
             setEncounterState('outcome');

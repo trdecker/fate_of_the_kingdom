@@ -14,6 +14,7 @@ function Tavern(props) {
         if(props.hero.health + encounter.affectAmount < 0){
             props.setHero({...props.hero, health: 0});
             // Handle death
+            props.setGameState('death')
         } else {
             props.setHero({...props.hero, health: props.hero.health + encounter.affectAmount});
             setEncounterState('outcome');

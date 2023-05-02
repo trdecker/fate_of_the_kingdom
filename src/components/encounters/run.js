@@ -14,6 +14,20 @@ function Run(props) {
         height: 20,
         width: 20
     };
+
+    var deathBox = {
+        x: 0,
+        y: 599,
+        width: 650,
+        height: 50
+    }
+
+    var success = {
+        x: 649,
+        y: 0,
+        width: 20,
+        height: 600
+    }
     // The status of the arrow keys
     var keys = {
         right: false,
@@ -36,7 +50,7 @@ function Run(props) {
     // Function to render the canvas
     function rendercanvas() {
         ctx.fillStyle = "#F0F8FF";
-        ctx.fillRect(0, 0, 650, 500);
+        ctx.fillRect(0, 0, 650, 600);
     }
     // Function to render the player
     function renderplayer() {
@@ -45,14 +59,19 @@ function Run(props) {
     }
     // Function to create platforms
     function createplat() {
-        for (let i = 0; i < num; i++) {
+        for (let i = 0; i <= num; i++) {
+            const platform = {
+                x: (100 + num * 10) * i,
+                y: 100 + (60 * i),
+                width: 110,
+                height: 15
+            }
+
+            if (i === num) {
+                platform.width = 200;
+            }
             platforms.push(
-                {
-                    x: 100 * (i * num),
-                    y: 30 + (60 * i),
-                    width: 110,
-                    height: 15
-                }
+                platform
             );
         }
     }
@@ -62,6 +81,16 @@ function Run(props) {
         for (const platform of platforms) {
         ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
         }
+    }
+
+    function renderDeathBox() {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(deathBox.x, deathBox.y, deathBox.width, deathBox.height);
+    }
+
+    function renderSuccess() {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(success.x, success.y, success.width, success.height);
     }
     // This function will be called when a key on the keyboard is pressed
     function keydown(e) {
@@ -121,7 +150,12 @@ function Run(props) {
                 platform = i;
             }
         }
-        if (platform === platforms.length - 1){
+        if (deathBox.x < player.x && player.x < deathBox.x + deathBox.width &&
+            deathBox.y < player.y && player.y < deathBox.y + deathBox.height) {
+            props.setGameState('death');
+        }
+        if (success.x < player.x && player.x < success.x + success.width &&
+            success.y < player.y && player.y < success.y + success.height) {
             props.setEncounterState('escaped');
         }
         if (platform > -1) {
@@ -132,12 +166,14 @@ function Run(props) {
         rendercanvas();
         renderplayer();
         renderplat();
+        renderDeathBox();
+        renderSuccess();
     }
 
     useEffect(() => {
         const canvas = canvasRef.current;
         ctx = canvas.getContext('2d');
-        ctx.canvas.height = 500;
+        ctx.canvas.height = 600;
         ctx.canvas.width = 650;
         createplat();
         // Adding the event listeners

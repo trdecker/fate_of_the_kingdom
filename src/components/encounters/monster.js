@@ -38,6 +38,7 @@ function Monster(props) {
         props.setHero({ ...props.hero, health: newHeroHealth });
         if (newHeroHealth <= 0) {
             // Handle death
+            props.setGameState('death')
         }
     }
 
@@ -92,7 +93,7 @@ function Monster(props) {
             </div>
                 </div>}
             {encounterState === 'run' && <div class="card w-96 bg-base-100 shadow-xl">
-                <Run platformNumber={props.hero.health / (encounter.monsterHealth / 1.5)} setEncounterState={setEncounterState}/>
+                <Run platformNumber={encounter.platforms} setEncounterState={setEncounterState} setGameState={props.setGameState}/>
             </div>
             }
             {encounterState === 'escaped' && <div class="card w-96 bg-base-100 shadow-xl">
