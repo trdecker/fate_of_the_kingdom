@@ -3,13 +3,14 @@ import './App.css';
 import Start from './components/start';
 import HeroCreation from './components/heroCreation';
 import Game from './components/game';
-import Death from './components/death'
+import Death from './components/death';
+import Win from './components/win';
 
 function App() {
   const [gameState, setGameState] = useState("start");
   const [hero, setHero] = useState({
-    strength: 2,
-    health: 10,
+    strength: 3,
+    health: 15,
     storage: [
       { name: 'a potion', type: 'health', amount: 5 },
     ]
@@ -36,6 +37,7 @@ function App() {
               {gameState === "hero-creation" && <HeroCreation setGameState={setGameState} hero={hero} setHero={setHero} />}
               {gameState === "playing" && <Game hero={hero} setHero={setHero} setGameState={setGameState}/>}
               {gameState === "death" && <Death hero={hero} setHero={setHero} setGameState={setGameState}/>}
+              {gameState === "win" && <Win hero={hero} setHero={setHero} setGameState={setGameState}/>}
             </div>
           </div>
 
