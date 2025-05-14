@@ -19,7 +19,7 @@ function Hero(props) {
     return (
         <div class="hero min-h-screen bg-base-200">
             {creationStep === 0 && <div>
-                <h2 class="text-5xl font-bold py-6">Choose your Hero</h2>
+                <h2 class="text-5xl font-bold py-6">Choose your Awesome Hero</h2>
                 <div class="flex flex-col w-full lg:flex-row">
                 <div class="card w-96 bg-base-100 shadow-xl">
                         <figure><img class="py-6 w-60" src={require('../images/heroFull.png')} alt="knight" /></figure>
